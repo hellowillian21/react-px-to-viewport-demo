@@ -9,7 +9,7 @@
 
 除此之外还要用到几个常规插件：  
 `cssnano-preset-advanced`  
-`postcss-aspect-ratio-min`  
+`postcss-aspect-ratio-mini`  
 `postcss-px-to-viewport`  
 `postcss-write-svg`  
 `cssnano`  
@@ -24,7 +24,7 @@ npx create-react-app react-px-to-viewport-demo
 ```
 ### 安装依赖
 ```
-npm install react-app-rewired customize-cra cssnano cssnano-preset-advanced postcss-aspect-ratio-min postcss-flexbugs-fixes postcss-preset-env postcss-px-to-viewport postcss-viewport-units postcss-write-svg react-app-rewire-postcss --save-dev
+npm install react-app-rewired customize-cra cssnano cssnano-preset-advanced postcss-aspect-ratio-mini postcss-flexbugs-fixes postcss-preset-env postcss-px-to-viewport postcss-viewport-units postcss-write-svg react-app-rewire-postcss --save-dev
 ```
 ### 修改npm脚本
 将`package.json`中的script脚本修改如下：
@@ -57,12 +57,12 @@ const pxToViewport = () => config => {
       require('postcss-aspect-ratio-mini')({}),
       require('postcss-px-to-viewport')({
         unitToConvert: 'px', // 需要转换的单位，默认为"px"
-        viewportWidth: 750,  // 视窗的宽度，对应的是我们设计稿的宽度
-        viewportHeight: 1334, //视窗的高度，根据375设备的宽度来指定，一般指定667，也可以不配置
+        viewportWidth: 750, // 视窗的宽度，对应的是我们设计稿的宽度
+        viewportHeight: 1334, // 视窗的高度，根据375设备的宽度来指定，一般指定667，也可以不配置
         unitPrecision: 5, // 指定`px`转换为视窗单位值的小数位数（很多时候无法整除）
         propList: ['*'], // 能转化为vw的属性列表
-        viewportUnit: 'vw',  // 指定需要转换成的视窗单位，建议使用vw
-        selectorBlackList: ['.ignore', '.hairlines'], //指定不转换为视窗单位的类，可以自定义，可以无限添加,建议定义一至两个通用的类名
+        viewportUnit: 'vw', // 指定需要转换成的视窗单位，建议使用vw
+        selectorBlackList: ['.ignore', '.hairlines'], // 指定不转换为视窗单位的类，可以自定义，可以无限添加,建议定义一至两个通用的类名
         minPixelValue: 1, // 小于或等于`1px`不转换为视窗单位，你也可以设置为你想要的值
         mediaQuery: false, // 允许在媒体查询中转换`px`
         replace: true, // 是否直接更换属性值，而不添加备用属性
